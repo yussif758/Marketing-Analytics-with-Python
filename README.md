@@ -119,8 +119,7 @@ ax.set_ylabel('Annual Income (k$)')
 ax.set_zlabel('Spending Score (1-100)')
 print(plt.show())
 ```
-![Figure_3d](https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/4625c826-82ab-4223-9f7e-a3956dd428f4)
-
+<img src="https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/4625c826-82ab-4223-9f7e-a3956dd428f4" width="700" height="500" >
 
 Plot the clusters in 2D, can choose any 2 variables. 
 ```
@@ -130,7 +129,7 @@ plt.xlabel('Spending score')
 plt.ylabel('Income')
 print(plt.show())
 ```
-![Figure_2d](https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/1746ef07-49ae-4b5a-b580-cfe486825694)
+<img src="https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/1746ef07-49ae-4b5a-b580-cfe486825694" width="700" height="500" >
 
 ## Applying Principal Component Analysis(PCA) to reduce dimensionality to 2 components
 PCA is a dimensionality reduction technique that can be used to reduce the dimensionality of large data sets, by transforming a large set of variables into a smaller one that still contains most of the information in the large set. Can used to compress 3 dimensions into 2. 
@@ -152,7 +151,7 @@ plt.xlabel('PCA component 1')
 plt.ylabel('PCA component 2')
 print(plt.show())
 ```
-![Figure_PCA 2d](https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/84b38520-8d4d-410f-aa01-90d3fda99d42)
+<img src="https://github.com/yussif758/Marketing-Analytics-with-Python/assets/135538081/84b38520-8d4d-410f-aa01-90d3fda99d42" width="700" height="500" >
 
 Note that PCA is a sneak technique but it is hard to interpret your results beause we dont know the exact features in the components.
 
