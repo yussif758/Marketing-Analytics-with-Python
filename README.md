@@ -1,7 +1,7 @@
-# Marketing-Analytics-with-Python
+# MARKETING ANALYTICS WITH PYTHON
 Customer Segmentation and Clustering
 
-# DATA EXPLORATION 
+## DATA EXPLORATION 
 import pandas because thats our data manipulation library
 ```
 import pandas as pd 
@@ -19,12 +19,12 @@ print(data)
 Columns = data.columns 
 print(Columns)
 ```
-# Use describe to give you a summary statistics of the data
+## Use describe to give you a summary statistics of the data
 ```
 Description = data.describe()
 print(Description)
 ```
-# RULE BASED SEGMENTATION
+## RULE BASED SEGMENTATION
 Value_counts() gives you number of genders and if you want it in percentages uses value_counts(normalize =True)
 ```
 Counts = data['Gender'].value_counts()
@@ -40,7 +40,7 @@ For percentile use numpy which I imported as 'np'
 p1, p2 = np.percentile(data['Age'],[33.3,66.6])
 print(p1)
 ```
-# Creating a Bin 
+### Creating a Bin 
 Bin means taking a continuous data and putting it in a categorical feature like low,medium and high.
 Any age above the p2, High, age above p1, medium else Low
 ```
@@ -48,7 +48,7 @@ data['Age Bin'] = np.where(data['Age']>p2,'High',np.where(data['Age']>p1,'Medium
 Counts2 = data['Age Bin'].value_counts()
 print(Counts2)
 ```
-# Create a Function to bin our data.
+### Create a Function to bin our data.
 by using function we make our work simple because we can apply it to other columns(repetition)
 ```
 def Binner(var,data):
@@ -60,7 +60,7 @@ Binner('Spending Score (1-100)',data)
 data = data.head()
 print(data)
 ```
-# Analyzing data categories 
+### Analyzing data categories 
 ```
 Group = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).mean()[['Age','Annual Income (k$)','Spending Score (1-100)']]
 print(Group)
@@ -79,7 +79,7 @@ OR use ascending=False to arrange them in descending order
 ```
 Group2 = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).count()[['CustomerID']].sort_values(by='CustomerID', ascending=False)
 ```
-# UNSUPERVISED SEGMENTATION (K-Means Algorithm)
+## UNSUPERVISED SEGMENTATION (K-Means Algorithm)
 ```
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -105,7 +105,7 @@ centroids = Kmeans.cluster_centers_
 data['Cluster Name'] = labels
 print(data.sample(10))
 ```
-# visualizing clusters: 
+## visualizing clusters: 
 ```
 from mpl_toolkits.mplot3d import Axes3D
 ```
@@ -127,7 +127,7 @@ plt.xlabel('Spending score')
 plt.ylabel('Income')
 print(plt.show())
 ```
-# Applying Principal Component Analysis(PCA) to reduce dimensionality to 2 components
+## Applying Principal Component Analysis(PCA) to reduce dimensionality to 2 components
 PCA is a dimensionality reduction technique that can be used to reduce the dimensionality of large data sets, by transforming a large set of variables into a smaller one that still contains most of the information in the large set. Can used to compress 3 dimensions into 2. 
 ```
 from sklearn.decomposition import PCA
@@ -149,7 +149,7 @@ print(plt.show())
 ```
 Note that PCA is a sneak technique but it is hard to interpret your results beause we dont know the exact features in the components.
 
-# Clustering Insights and personas 
+## Clustering Insights and personas 
 Deriving insights from unsupervised clusters feature
 Once the clusters have been identified, the next step is to analyze the characteristics of each cluster and develop rules and criteria based on their common traits. Deriving the rules involves interpreting the results of a clustering analysis to extract meaningful and actionable insights.
 
@@ -168,7 +168,7 @@ print(new_info1)
 Crosstab = pd.crosstab(data['Cluster Name'], data['Gender'], normalize='index')
 print(Crosstab)
 ```
-# What are the insights?
+## What are the insights?
 Cluster 0 
 1. From data,cluster 0 is made up of people who are middle-aged, high income earners with low spending habit. 
 2. offer exclusive savings or investment opportunities
