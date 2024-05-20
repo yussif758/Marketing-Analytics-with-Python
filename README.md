@@ -2,8 +2,11 @@
 Customer Segmentation and Clustering
 
 ## DATA EXPLORATION 
-import pandas because thats our data manipulation library
+FIrstly, I installed pandas and numpy and import them as pd and np because thats our data manipulation library.
 ```
+pip3 install pandas
+pip3 install numpy
+
 import pandas as pd 
 import numpy as np
 ```
