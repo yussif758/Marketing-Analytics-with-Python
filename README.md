@@ -14,31 +14,31 @@ warnings.filterwarnings('ignore')
 
 data = pd.read_csv('Segmentation-Mall_Customers.csv')
 data.head()
-#print(data)
+print(data)
 
 Columns = data.columns 
-#print(Columns)
+print(Columns)
 ```
 # Use describe to give you a summary statistics of the data
 ```
 Description = data.describe()
-#print(Description)
+print(Description)
 ```
 # RULE BASED SEGMENTATION
 Value_counts() gives you number of genders and if you want it in percentages uses value_counts(normalize =True)
 ```
 Counts = data['Gender'].value_counts()
 Counts1 = data['Gender'].value_counts(normalize =True)
-#print(Counts)
+print(Counts)
 MaxAge = data['Age'].max()
 MinAge = data['Age'].min()
-#print(MaxAge)
-#print(MinAge)
+print(MaxAge)
+print(MinAge)
 ```
 For percentile use numpy which I imported as 'np'
 ```
 p1, p2 = np.percentile(data['Age'],[33.3,66.6])
-#print(p1)
+print(p1)
 ```
 # Creating a Bin 
 Bin means taking a continuous data and putting it in a categorical feature like low,medium and high.
@@ -46,7 +46,7 @@ Any age above the p2, High, age above p1, medium else Low
 ```
 data['Age Bin'] = np.where(data['Age']>p2,'High',np.where(data['Age']>p1,'Medium','Low'))
 Counts2 = data['Age Bin'].value_counts()
-#print(Counts2)
+print(Counts2)
 ```
 # Create a Function to bin our data.
 by using function we make our work simple because we can apply it to other columns(repetition)
@@ -57,25 +57,26 @@ def Binner(var,data):
     
 Binner('Annual Income (k$)',data)
 Binner('Spending Score (1-100)',data)
-
-#data = data.head()
-#print(data)
+data = data.head()
+print(data)
 ```
 # Analyzing data categories 
 ```
 Group = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).mean()[['Age','Annual Income (k$)','Spending Score (1-100)']]
-#print(Group)
+print(Group)
 ```
 We can also group by the count of customer ID.
 ```
 Group1 = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).count()[['CustomerID']]
-#print(Group1)
+print(Group1)
 ```
 We can also sort by customerID
 ```
 Group2 = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).count()[['CustomerID']].sort_values(by='CustomerID')
-#print(Group2)
-#OR use ascending=False to arrange them in descending order
+print(Group2)
+```
+OR use ascending=False to arrange them in descending order
+```
 Group2 = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).count()[['CustomerID']].sort_values(by='CustomerID', ascending=False)
 ```
 # UNSUPERVISED SEGMENTATION (K-Means Algorithm)
@@ -84,8 +85,10 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 num_clusters = 3
 X = data[['Age','Annual Income (k$)','Spending Score (1-100)']]
-#Initialize the kMeans algorithm
-#random_state is not necessary but if you want to reproduce the results you have to give a random state
+```
+Initialize the kMeans algorithm
+random_state is not necessary but if you want to reproduce the results you have to give a random state
+```
 Kmeans = KMeans(n_clusters = num_clusters, random_state = 0)
 ```
 fit the algorithm to the data: When you fit the data thats the learning phase of the data 
@@ -100,7 +103,7 @@ Get the Centroids for each cluster
 ```
 centroids = Kmeans.cluster_centers_
 data['Cluster Name'] = labels
-#print(data.sample(10))
+print(data.sample(10))
 ```
 # visualizing clusters: 
 ```
@@ -108,21 +111,21 @@ from mpl_toolkits.mplot3d import Axes3D
 ```
 plot the cluters in 3D
 ```
-#fig = plt.figure(figsize=(5,5))
-#ax = fig.add_subplot(111, projection='3d')
-#ax.scatter(X['Age'],X['Annual Income (k$)'], X['Spending Score (1-100)'], c = Kmeans.labels_)
-#ax.set_xlabel('Age')
-#ax.set_ylabel('Annual Income (k$)')
-#ax.set_zlabel('Spending Score (1-100)')
-#print(plt.show())
+fig = plt.figure(figsize=(5,5))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(X['Age'],X['Annual Income (k$)'], X['Spending Score (1-100)'], c = Kmeans.labels_)
+ax.set_xlabel('Age')
+ax.set_ylabel('Annual Income (k$)')
+ax.set_zlabel('Spending Score (1-100)')
+print(plt.show())
 ```
 Plot the clusters in 2D, can choose any 2 variables. 
 ```
-#fig = plt.figure(figsize=(5,5))
-#plt.scatter(data['Spending Score (1-100)'],data['Annual Income (k$)'], c = Kmeans.labels_)
-#plt.xlabel('Spending score')
-#plt.ylabel('Income')
-#print(plt.show())
+fig = plt.figure(figsize=(5,5))
+plt.scatter(data['Spending Score (1-100)'],data['Annual Income (k$)'], c = Kmeans.labels_)
+plt.xlabel('Spending score')
+plt.ylabel('Income')
+print(plt.show())
 ```
 # Applying Principal Component Analysis(PCA) to reduce dimensionality to 2 components
 PCA is a dimensionality reduction technique that can be used to reduce the dimensionality of large data sets, by transforming a large set of variables into a smaller one that still contains most of the information in the large set. Can used to compress 3 dimensions into 2. 
