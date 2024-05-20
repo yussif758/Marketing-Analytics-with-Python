@@ -10,11 +10,13 @@ pip3 install numpy
 import pandas as pd 
 import numpy as np
 ```
-import warnigs so that the warnings wont always pop-up 
+import warnings so that the warnings won't always pop up.
 ```
 import warnings 
 warnings.filterwarnings('ignore')
-
+```
+Use "head()", "columns", and "describe()" to view or get a summary of the statistics of the data.
+```
 data = pd.read_csv('Segmentation-Mall_Customers.csv')
 data.head()
 print(data)
@@ -22,7 +24,6 @@ print(data)
 Columns = data.columns 
 print(Columns)
 ```
-## Use describe to give you a summary statistics of the data
 ```
 Description = data.describe()
 print(Description)
