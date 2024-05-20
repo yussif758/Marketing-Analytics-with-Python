@@ -159,13 +159,13 @@ Note that PCA is a sneak technique but it is hard to interpret your results beau
 Deriving insights from unsupervised clusters feature
 Once the clusters have been identified, the next step is to analyze the characteristics of each cluster and develop rules and criteria based on their common traits. Deriving the rules involves interpreting the results of a clustering analysis to extract meaningful and actionable insights.
 
-1. Compute the mean of all the attributes grouped by the clusters 
+- Compute the mean of all the attributes grouped by the clusters 
 
-2. Compute the medium of all the attributes grouped by the clusters
+- Compute the medium of all the attributes grouped by the clusters
 
-3. Try to identify the differences in the attribute mean and median
+- Try to identify the differences in the attribute mean and median
 
-4. Devices strategies based on clusters
+- Devices strategies based on clusters
 
 ```
 new_info = data.groupby('Cluster Name')[['Age', 'Annual Income (k$)', 'Spending Score (1-100)']].mean()
