@@ -2,6 +2,9 @@
 Customer Segmentation and Clustering
 
 ## DATA EXPLORATION 
+
+This dataset contains 200 customers, whose ID, age, gender, annual income, and spending score are all included. A spending score represents the total amount of money a customer has spent on your brand and can be calculated by adding up the total purchase amount for a customer over a particular period of time. This score is between 1 and 100. The objective of this model is to divide the customers into a reasonable number of segments and clusters.
+
 FIrstly, I installed pandas and numpy and import them as pd and np because thats our data manipulation library.
 ```
 pip3 install pandas
