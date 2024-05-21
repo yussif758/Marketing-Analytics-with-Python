@@ -15,6 +15,8 @@ import warnings so that the warnings won't always pop up.
 import warnings 
 warnings.filterwarnings('ignore')
 ```
+Import the dataset using "pd.read_csv".
+
 Use "head()", "columns", and "describe()" to view or get a summary of the statistics of the data.
 ```
 data = pd.read_csv('Segmentation-Mall_Customers.csv')
@@ -29,6 +31,8 @@ Description = data.describe()
 print(Description)
 ```
 ## RULE BASED SEGMENTATION
+This has to do with dividing data into distinct groups based on predefined rules.
+
 Value_counts() gives you number of genders and if you want it in percentages uses value_counts(normalize =True)
 ```
 Counts = data['Gender'].value_counts()
@@ -84,7 +88,12 @@ OR use ascending=False to arrange them in descending order
 Group2 = data.groupby(['Gender','Age Bin','Annual Income (k$)Bin','Spending Score (1-100)Bin']).count()[['CustomerID']].sort_values(by='CustomerID', ascending=False)
 ```
 ## UNSUPERVISED SEGMENTATION (K-Means Algorithm)
+This is a way of partitioning data into 'K' clusters based on similarities. K-Means divides the objects into groups based on similarities and differences between the objects in each cluster. The centroids are adjusted iteratively by the algorithm until the ideal number of clusters are produced.
+
 ```
+pip3 install matplotlib
+pip3 install sklearn
+
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 num_clusters = 3
