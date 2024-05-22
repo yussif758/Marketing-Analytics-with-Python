@@ -1,10 +1,11 @@
 # MARKETING ANALYTICS WITH PYTHON
-Customer Segmentation and Clustering
+### Customer Segmentation and Clustering
 
-Customer segmentaion is the process of dividing customers into group based on similar interests or characteristics.
+Customer segmentation is the process of dividing customers into groups based on similar interests or characteristics. On the other hand, clustering, also known as cluster analysis, is a statistical method of grouping data based on their similarities.  
+
 ## DATA EXPLORATION 
 
-This dataset contains 200 customers, whose ID, age, gender, annual income, and spending score are all included. A spending score represents the total amount of money a customer has spent on your brand and can be calculated by adding up the total purchase amount for a customer over a particular period of time. This score is between 1 and 100. The objective of this model is to divide the customers into a reasonable number of segments and clusters.
+This dataset contains 200 customers, whose ID, age, gender, annual income, and spending score are all included. A spending score represents the total amount of money a customer has spent on your brand and can be calculated by adding up the total purchase amount for a customer over a particular period of time. This is also known as the RFM score and it ranges between 1 and 100. The objective of this model is to divide the customers into a reasonable number of segments and clusters.
 
 FIrstly, I installed pandas and numpy and import them as pd and np because thats our data manipulation library.
 ```
