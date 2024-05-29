@@ -1,7 +1,8 @@
 # MARKETING ANALYTICS WITH PYTHON
 ### Customer Segmentation and Clustering
 
-Customer segmentation is the process of dividing customers into groups based on similar interests or characteristics. On the other hand, clustering, also known as cluster analysis, is a statistical method of grouping data based on their similarities.  
+Customer segmentation is the process of dividing customers into groups based on similar interests or characteristics. Typically, predefined criteria are used for customer segmentation, with the business objective serving as the technique's guidance. On the other hand, clustering, also known as cluster analysis, is a statistical method of grouping data based on their similarities. The clustering algorithm identifies customers with similar attributes by analyzing customer data. Unlike customer segmentation, this is done without predetermined criteria.
+
 
 ## DATA EXPLORATION 
 
